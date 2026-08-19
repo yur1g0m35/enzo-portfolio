@@ -52,7 +52,7 @@
 
   const roles = [
     'Analista de Segurança',
-    'Red Team Specialist',
+    'Red Team',
     'Pentester',
     'Offensive Security',
     'Vulnerability Researcher',
