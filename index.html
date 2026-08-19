@@ -3,369 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enzo Gomes | Security Analyst</title>
-  <meta name="description" content="Portfólio de Enzo Frederico Mota Lenzi Gomes - Analista de Segurança da Informação especializado em Segurança Ofensiva">
-  <meta name="theme-color" content="#ff0040">
+  <title>Enzo Gomes — Security Analyst</title>
+  <meta name="description" content="Enzo Frederico Mota Lenzi Gomes — Analista de Segurança da Informação especializado em Segurança Ofensiva.">
+  <meta name="theme-color" content="#080808">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- BOOT SCREEN -->
-  <div id="boot-screen">
-    <div class="boot-content">
-      <pre class="boot-ascii" id="boot-ascii"></pre>
-      <div class="boot-terminal" id="boot-terminal"></div>
-      <div class="boot-progress">
-        <div class="boot-progress-bar" id="boot-progress-bar"></div>
-      </div>
-      <p class="boot-status" id="boot-status">Inicializando sistema...</p>
-    </div>
-  </div>
 
-  <!-- CRT OVERLAY -->
-  <div id="crt-overlay"></div>
-
-  <!-- CUSTOM CURSOR -->
-  <div id="cursor"></div>
-  <div id="cursor-trail"></div>
-
-  <!-- CANVASES -->
-  <canvas id="matrix-canvas"></canvas>
-  <canvas id="particles-canvas"></canvas>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-logo">&lt;<span class="neon">EG</span> /&gt;</div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#sobre" data-text="Sobre">Sobre</a></li>
-      <li><a href="#experiencia" data-text="Experiência">Experiência</a></li>
-      <li><a href="#certificacoes" data-text="Certificações">Certificações</a></li>
-      <li><a href="#competencias" data-text="Competências">Competências</a></li>
-      <li><a href="#formacao" data-text="Formação">Formação</a></li>
-      <li><a href="#contato" data-text="Contato">Contato</a></li>
+  <nav class="topbar">
+    <a href="#" class="topbar-logo">&lt;<span class="accent">EG</span>/&gt;</a>
+    <ul class="topbar-nav">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#certificacoes">Certificações</a></li>
+      <li><a href="#competencias">Competências</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#contato">Contato</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-content">
-      <p class="hero-greeting">root@portfolio:~$</p>
-      <h1 class="glitch" data-text="ENZO GOMES">ENZO GOMES</h1>
-      <p class="hero-role"><span class="typewriter" id="typewriter"></span><span class="cursor-blink">|</span></p>
-      <div class="hero-info">
+  <main>
+    <!-- HERO -->
+    <header class="hero reveal">
+      <div class="hero-frame">
+        <h1 class="hero-name">ENZO GOMES</h1>
+      </div>
+      <p class="hero-role">
+        <span class="typewriter" id="typewriter"></span><span class="caret">|</span>
+      </p>
+      <p class="hero-meta">
         <span>Rio de Janeiro, RJ</span>
-        <span class="separator">//</span>
+        <span class="sep">·</span>
         <span>(21) 99973-4036</span>
-        <span class="separator">//</span>
+        <span class="sep">·</span>
         <a href="mailto:enzofred.lenzi@gmail.com">enzofred.lenzi@gmail.com</a>
-      </div>
+      </p>
       <div class="hero-links">
-        <a href="https://www.linkedin.com/in/enzo-frederico-lenzi" target="_blank" class="btn-neon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          LinkedIn
+        <a href="https://www.linkedin.com/in/enzo-frederico-lenzi" target="_blank" class="ghost-btn">LinkedIn</a>
+        <a href="mailto:enzofred.lenzi@gmail.com" class="ghost-btn">Email</a>
+      </div>
+    </header>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">I</div>
+        <h2 class="section-heading">Sobre Mim</h2>
+      </header>
+      <div class="prose reveal">
+        <p>Profissional de Segurança da Informação com foco em <strong>Segurança Ofensiva</strong>, atuando ativamente na identificação, exploração e gestão de vulnerabilidades em aplicações e infraestrutura corporativa.</p>
+        <p>Experiência prática na execução de pentests (Web e Infra), simulações de adversários (Assumed Breach) e avaliação de segurança estruturada em referências globais como OWASP, MITRE ATT&CK, CWE e CVSS.</p>
+        <p>Forte capacidade analítica e autodidatismo, integrando o conhecimento de ataque a uma visão holística de defesa e resiliência dos ambientes. Experiência na automatização de processos de segurança e consolidação de relatórios técnicos, incluindo o desenvolvimento de soluções voltadas para a otimização de fluxos de vulnerabilidades.</p>
+        <p>Vivência na implantação de laboratórios de segurança, atuação em auditorias em clientes com foco em gestão de vulnerabilidades e ISO 27001/27002, execução de forense digital e colaboração direta com times de Blue Team e GRC.</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experiencia">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">II</div>
+        <h2 class="section-heading">Experiência Profissional</h2>
+      </header>
+
+      <article class="entry reveal">
+        <div class="entry-date">
+          <span class="mono">mai 2025 — atualmente</span>
+        </div>
+        <div class="entry-body">
+          <h3 class="entry-title">Analista de Segurança da Informação</h3>
+          <p class="entry-org">Every Cibersecurity</p>
+          <ul class="entry-list">
+            <li>Execução de pentests em aplicações Web e infraestrutura (grey box e white box)</li>
+            <li>Simulações de adversários focada em cenários de Assumed Breach</li>
+            <li>Identificação e análise de vulnerabilidades com Tenable One, Nessus e Syhunt</li>
+            <li>Validação de vulnerabilidades via testes de intrusão controlados e simulação de ataques reais</li>
+            <li>Correlação e análise de ameaças utilizando MITRE ATT&CK, OWASP, CWE, CVE e NVD</li>
+            <li>Priorização de correção fundamentada no risco corporativo e viabilidade técnica (CVSS)</li>
+            <li>Implantação e gerenciamento de agentes e sensores (RNA)</li>
+            <li>Elaboração de relatórios técnicos e executivos com KPIs e propostas de remediação</li>
+            <li>Análises forenses digitais com identificação de causa raiz</li>
+            <li>Criação de laboratórios práticos de cibersegurança em Docker</li>
+            <li>Gestão de vulnerabilidades em auditorias ISO 27001/27002</li>
+            <li>Colaboração com equipes de Blue Team, GRC e Privacidade (NIST, CIS Controls, LGPD)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry reveal">
+        <div class="entry-date">
+          <span class="mono">mai 2023 — dez 2024</span>
+        </div>
+        <div class="entry-body">
+          <h3 class="entry-title">Administrador Técnico — Projeto Hórus</h3>
+          <p class="entry-org">UVA - Universidade Veiga de Almeida</p>
+          <p class="entry-desc">Trabalho voluntário promovendo conscientização sobre segurança da informação e capacitação da comunidade acadêmica.</p>
+          <ul class="entry-list">
+            <li>Criação de materiais práticos voltados à mitigação de vulnerabilidades</li>
+            <li>Condução de treinamentos técnicos sobre segurança ofensiva e defensiva</li>
+            <li>Democratização do acesso à cibersegurança e prevenção contra engenharia social</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- CERTIFICACOES -->
+    <section id="certificacoes">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">III</div>
+        <h2 class="section-heading">Certificações</h2>
+      </header>
+      <div class="card-grid-4 reveal">
+        <div class="card" data-tilt>
+          <div class="card-label mono">CyberWarFare Labs</div>
+          <h3 class="card-title">CRTA</h3>
+          <p class="card-sub">Certified Red Team Analyst</p>
+        </div>
+        <div class="card" data-tilt>
+          <div class="card-label mono">CyberWarFare Labs</div>
+          <h3 class="card-title">WEB-RTA</h3>
+          <p class="card-sub">Certified Web Red Team Analyst</p>
+        </div>
+        <div class="card" data-tilt>
+          <div class="card-label mono">CyberWarFare Labs</div>
+          <h3 class="card-title">MCRTA</h3>
+          <p class="card-sub">Certified Multi-Cloud Red Team Analyst</p>
+        </div>
+        <div class="card" data-tilt>
+          <div class="card-label mono">CyberWarFare Labs</div>
+          <h3 class="card-title">API-RTA</h3>
+          <p class="card-sub">Certified API Red Team Analyst</p>
+        </div>
+      </div>
+      <div class="inline-tag reveal">
+        <span class="mono">IDIOMAS</span>
+        <span>Inglês — <em>Avançado</em></span>
+      </div>
+    </section>
+
+    <!-- COMPETENCIAS -->
+    <section id="competencias">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">IV</div>
+        <h2 class="section-heading">Competências Técnicas</h2>
+      </header>
+      <div class="skills-list reveal">
+        <div class="skill-group">
+          <h3 class="skill-cat">Segurança Ofensiva</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Pentest Web</span>
+            <span class="skill-pill">Pentest API</span>
+            <span class="skill-pill">Pentest Infraestrutura</span>
+            <span class="skill-pill">Red Team</span>
+            <span class="skill-pill">Gestão de Vulnerabilidades</span>
+            <span class="skill-pill">OSINT</span>
+            <span class="skill-pill">Active Directory</span>
+            <span class="skill-pill">Mobile Exploitation</span>
+            <span class="skill-pill">OpSec</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-cat">Sistemas & Redes</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Windows</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">TCP/IP</span>
+            <span class="skill-pill">DNS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-cat">Programação</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Bash</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-cat">Ferramentas</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Burp Suite</span>
+            <span class="skill-pill">Nmap</span>
+            <span class="skill-pill">Metasploit</span>
+            <span class="skill-pill">Tenable/Nessus</span>
+            <span class="skill-pill">Syhunt</span>
+            <span class="skill-pill">Wireshark</span>
+            <span class="skill-pill">Docker</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-cat">Frameworks & Normas</h3>
+          <div class="skill-items">
+            <span class="skill-pill">OWASP Top 10</span>
+            <span class="skill-pill">MITRE ATT&CK</span>
+            <span class="skill-pill">PTES</span>
+            <span class="skill-pill">NIST</span>
+            <span class="skill-pill">CIS Controls</span>
+            <span class="skill-pill">CWE/CVE</span>
+            <span class="skill-pill">CVSS</span>
+            <span class="skill-pill">ISO 27001</span>
+            <span class="skill-pill">ISO 27002</span>
+            <span class="skill-pill">LGPD</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-cat">Prática</h3>
+          <div class="skill-items">
+            <span class="skill-pill">TryHackMe</span>
+            <span class="skill-pill">HackTheBox</span>
+            <span class="skill-pill">CTFs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACAO -->
+    <section id="formacao">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">V</div>
+        <h2 class="section-heading">Formação Acadêmica</h2>
+      </header>
+      <div class="card-grid-3 reveal">
+        <div class="card" data-tilt>
+          <div class="card-badge badge-ongoing">Em andamento</div>
+          <div class="card-label mono">Pós-graduação</div>
+          <h3 class="card-title">Red Team Operations</h3>
+          <p class="card-sub">Offensive Cyber Security</p>
+          <p class="card-org">FIAP</p>
+          <p class="card-date mono">Previsão: fev 2027</p>
+        </div>
+        <div class="card" data-tilt>
+          <div class="card-badge badge-done">Concluído</div>
+          <div class="card-label mono">Bacharelado</div>
+          <h3 class="card-title">Ciência da Computação</h3>
+          <p class="card-org">UVA - Universidade Veiga de Almeida</p>
+          <p class="card-date mono">Dezembro 2025</p>
+        </div>
+        <div class="card" data-tilt>
+          <div class="card-badge badge-done">Concluído</div>
+          <div class="card-label mono">Tecnólogo</div>
+          <h3 class="card-title">Segurança da Informação</h3>
+          <p class="card-org">IBMR</p>
+          <p class="card-date mono">Outubro 2023</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <header class="section-rubric reveal">
+        <div class="rubric-num">VI</div>
+        <h2 class="section-heading">Contato</h2>
+      </header>
+      <p class="prose reveal">Aberto a oportunidades, colaborações e troca de conhecimento na área de segurança da informação.</p>
+      <div class="contact-row reveal">
+        <a href="mailto:enzofred.lenzi@gmail.com" class="contact-item">
+          <span class="ci-label">Email</span>
+          <span class="ci-value mono">enzofred.lenzi@gmail.com</span>
         </a>
-        <a href="mailto:enzofred.lenzi@gmail.com" class="btn-neon btn-filled">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Contato
+        <a href="https://www.linkedin.com/in/enzo-frederico-lenzi" target="_blank" class="contact-item">
+          <span class="ci-label">LinkedIn</span>
+          <span class="ci-value mono">/in/enzo-frederico-lenzi</span>
+        </a>
+        <a href="tel:+5521999734036" class="contact-item">
+          <span class="ci-label">Telefone</span>
+          <span class="ci-value mono">(21) 99973-4036</span>
         </a>
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-arrow">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- SOBRE -->
-  <section id="sobre" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Sobre Mim</h2>
-      <div class="about-grid reveal">
-        <div class="terminal-window">
-          <div class="terminal-bar">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-label">about.sh — bash</span>
-          </div>
-          <div class="terminal-body">
-            <p class="t-line"><span class="prompt">┌──(root㉿portfolio)-[~]</span></p>
-            <p class="t-line"><span class="prompt">└─$</span> cat /etc/profile</p>
-            <p class="t-output">Profissional de Segurança da Informação com foco em Segurança Ofensiva, atuando ativamente na identificação, exploração e gestão de vulnerabilidades em aplicações e infraestrutura corporativa.</p>
-            <p class="t-output">Experiência prática na execução de pentests (Web e Infra), simulações de adversários (Assumed Breach) e avaliação de segurança estruturada em referências globais como OWASP, MITRE ATT&CK, CWE e CVSS.</p>
-            <p class="t-output">Forte capacidade analítica e autodidatismo, integrando o conhecimento de ataque a uma visão holística de defesa e resiliência dos ambientes.</p>
-            <p class="t-line"><span class="prompt">└─$</span> echo $SKILLS | head -5</p>
-            <p class="t-output accent-text">Pentest | Red Team | OSINT | Active Directory | AppSec</p>
-            <p class="t-line"><span class="prompt">└─$</span> echo "CTF constante no TryHackMe e HackTheBox"</p>
-            <p class="t-line"><span class="prompt">└─$</span> <span class="cursor-blink">_</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCIA -->
-  <section id="experiencia" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Experiência Profissional</h2>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card" data-tilt>
-            <div class="timeline-header">
-              <h3>Analista de Segurança da Informação</h3>
-              <span class="timeline-date">mai 2025 — atualmente</span>
-            </div>
-            <h4 class="company">Every Cibersecurity</h4>
-            <ul class="timeline-list">
-              <li>Execução de pentests em aplicações Web e infraestrutura (grey box e white box)</li>
-              <li>Simulações de adversários focada em cenários de Assumed Breach</li>
-              <li>Identificação e análise de vulnerabilidades com Tenable One, Nessus e Syhunt</li>
-              <li>Validação de vulnerabilidades via testes de intrusão controlados e simulação de ataques reais</li>
-              <li>Correlação e análise de ameaças utilizando MITRE ATT&CK, OWASP, CWE, CVE e NVD</li>
-              <li>Priorização de correção fundamentada no risco corporativo e viabilidade técnica (CVSS)</li>
-              <li>Implantação e gerenciamento de agentes e sensores (RNA)</li>
-              <li>Elaboração de relatórios técnicos e executivos com KPIs e propostas de remediação</li>
-              <li>Análises forenses digitais com identificação de causa raiz</li>
-              <li>Criação de laboratórios práticos de cibersegurança em Docker</li>
-              <li>Gestão de vulnerabilidades em auditorias ISO 27001/27002</li>
-              <li>Colaboração com equipes de Blue Team, GRC e Privacidade (NIST, CIS Controls, LGPD)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card" data-tilt>
-            <div class="timeline-header">
-              <h3>Administrador Técnico — Projeto Hórus</h3>
-              <span class="timeline-date">mai 2023 — dez 2024</span>
-            </div>
-            <h4 class="company">UVA - Universidade Veiga de Almeida</h4>
-            <p class="timeline-desc">Trabalho voluntário promovendo conscientização sobre segurança da informação e capacitação da comunidade acadêmica.</p>
-            <ul class="timeline-list">
-              <li>Criação de materiais práticos voltados à mitigação de vulnerabilidades</li>
-              <li>Condução de treinamentos técnicos sobre segurança ofensiva e defensiva</li>
-              <li>Democratização do acesso à cibersegurança e prevenção contra engenharia social</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICACOES -->
-  <section id="certificacoes" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Certificações</h2>
-      <div class="cert-grid">
-        <div class="cert-card reveal" data-tilt>
-          <div class="cert-glow"></div>
-          <div class="cert-icon">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l9-13h-6l2-5-9 13h6z"/></svg>
-          </div>
-          <h3>CRTA</h3>
-          <p>Certified Red Team Analyst</p>
-          <span class="cert-org">CyberWarFare Labs</span>
-        </div>
-        <div class="cert-card reveal" data-tilt>
-          <div class="cert-glow"></div>
-          <div class="cert-icon">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l9-13h-6l2-5-9 13h6z"/></svg>
-          </div>
-          <h3>WEB-RTA</h3>
-          <p>Certified Web Red Team Analyst</p>
-          <span class="cert-org">CyberWarFare Labs</span>
-        </div>
-        <div class="cert-card reveal" data-tilt>
-          <div class="cert-glow"></div>
-          <div class="cert-icon">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l9-13h-6l2-5-9 13h6z"/></svg>
-          </div>
-          <h3>MCRTA</h3>
-          <p>Certified Multi-Cloud Red Team Analyst</p>
-          <span class="cert-org">CyberWarFare Labs</span>
-        </div>
-        <div class="cert-card reveal" data-tilt>
-          <div class="cert-glow"></div>
-          <div class="cert-icon">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l9-13h-6l2-5-9 13h6z"/></svg>
-          </div>
-          <h3>API-RTA</h3>
-          <p>Certified API Red Team Analyst</p>
-          <span class="cert-org">CyberWarFare Labs</span>
-        </div>
-      </div>
-      <div class="idioma-row reveal">
-        <div class="idioma-card">
-          <span class="idioma-label">IDIOMAS</span>
-          <p>Inglês — <span class="accent-text">Avançado</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPETENCIAS -->
-  <section id="competencias" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Competências Técnicas</h2>
-      <div class="skills-grid">
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Segurança Ofensiva</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="Pentest Web">Pentest Web</span>
-            <span class="skill-tag" data-text="Pentest API">Pentest API</span>
-            <span class="skill-tag" data-text="Pentest Infraestrutura">Pentest Infraestrutura</span>
-            <span class="skill-tag" data-text="Red Team">Red Team</span>
-            <span class="skill-tag" data-text="Gestão de Vulnerabilidades">Gestão de Vulnerabilidades</span>
-            <span class="skill-tag" data-text="OSINT">OSINT</span>
-            <span class="skill-tag" data-text="Active Directory">Active Directory</span>
-            <span class="skill-tag" data-text="Mobile Exploitation">Mobile Exploitation</span>
-            <span class="skill-tag" data-text="OpSec">OpSec</span>
-          </div>
-        </div>
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Sistemas & Redes</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="Windows">Windows</span>
-            <span class="skill-tag" data-text="Linux">Linux</span>
-            <span class="skill-tag" data-text="TCP/IP">TCP/IP</span>
-            <span class="skill-tag" data-text="DNS">DNS</span>
-          </div>
-        </div>
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Programação</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="Python">Python</span>
-            <span class="skill-tag" data-text="Bash">Bash</span>
-            <span class="skill-tag" data-text="SQL">SQL</span>
-          </div>
-        </div>
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Ferramentas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="Burp Suite">Burp Suite</span>
-            <span class="skill-tag" data-text="Nmap">Nmap</span>
-            <span class="skill-tag" data-text="Metasploit">Metasploit</span>
-            <span class="skill-tag" data-text="Tenable/Nessus">Tenable/Nessus</span>
-            <span class="skill-tag" data-text="Syhunt">Syhunt</span>
-            <span class="skill-tag" data-text="Wireshark">Wireshark</span>
-            <span class="skill-tag" data-text="Docker">Docker</span>
-          </div>
-        </div>
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Frameworks & Normas</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="OWASP Top 10">OWASP Top 10</span>
-            <span class="skill-tag" data-text="MITRE ATT&CK">MITRE ATT&CK</span>
-            <span class="skill-tag" data-text="PTES">PTES</span>
-            <span class="skill-tag" data-text="NIST">NIST</span>
-            <span class="skill-tag" data-text="CIS Controls">CIS Controls</span>
-            <span class="skill-tag" data-text="CWE/CVE">CWE/CVE</span>
-            <span class="skill-tag" data-text="CVSS">CVSS</span>
-            <span class="skill-tag" data-text="ISO 27001">ISO 27001</span>
-            <span class="skill-tag" data-text="ISO 27002">ISO 27002</span>
-            <span class="skill-tag" data-text="LGPD">LGPD</span>
-          </div>
-        </div>
-        <div class="skill-category reveal" data-tilt>
-          <h3><span class="accent">&gt;</span> Prática</h3>
-          <div class="skill-tags">
-            <span class="skill-tag" data-text="TryHackMe">TryHackMe</span>
-            <span class="skill-tag" data-text="HackTheBox">HackTheBox</span>
-            <span class="skill-tag" data-text="CTFs">CTFs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMACAO -->
-  <section id="formacao" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Formação Acadêmica</h2>
-      <div class="edu-grid">
-        <div class="edu-card reveal" data-tilt>
-          <div class="edu-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <span class="edu-status ongoing">EM ANDAMENTO</span>
-          <h3>Pós-graduação</h3>
-          <h4>Red Team Operations & Offensive Cyber Security</h4>
-          <p class="edu-school">FIAP</p>
-          <p class="edu-date">Previsão: fev 2027</p>
-        </div>
-        <div class="edu-card reveal" data-tilt>
-          <div class="edu-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <span class="edu-status done">CONCLUÍDO</span>
-          <h3>Bacharelado</h3>
-          <h4>Ciência da Computação</h4>
-          <p class="edu-school">UVA - Universidade Veiga de Almeida</p>
-          <p class="edu-date">Dezembro 2025</p>
-        </div>
-        <div class="edu-card reveal" data-tilt>
-          <div class="edu-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <span class="edu-status done">CONCLUÍDO</span>
-          <h3>Tecnólogo</h3>
-          <h4>Segurança da Informação</h4>
-          <p class="edu-school">IBMR</p>
-          <p class="edu-date">Outubro 2023</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section id="contato" class="section">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="accent">//</span> Contato</h2>
-      <div class="contact-content reveal">
-        <p class="contact-text">Aberto a oportunidades, colaborações e troca de conhecimento na área de segurança da informação.</p>
-        <div class="contact-grid">
-          <a href="mailto:enzofred.lenzi@gmail.com" class="contact-card" data-tilt>
-            <div class="contact-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <h3>Email</h3>
-            <p>enzofred.lenzi@gmail.com</p>
-          </a>
-          <a href="https://www.linkedin.com/in/enzo-frederico-lenzi" target="_blank" class="contact-card" data-tilt>
-            <div class="contact-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </div>
-            <h3>LinkedIn</h3>
-            <p>/in/enzo-frederico-lenzi</p>
-          </a>
-          <a href="tel:+5521999734036" class="contact-card" data-tilt>
-            <div class="contact-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h3>Telefone</h3>
-            <p>(21) 99973-4036</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>&lt;/&gt; Desenvolvido por <span class="accent-text">Enzo Gomes</span> | 2026</p>
-    </div>
+  <footer class="colophon">
+    <span class="orn" aria-hidden="true">†</span>
+    <span>Enzo Gomes · 2026</span>
+    <span class="orn" aria-hidden="true">†</span>
   </footer>
 
   <script src="script.js"></script>
