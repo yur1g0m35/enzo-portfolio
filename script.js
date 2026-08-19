@@ -110,49 +110,64 @@
 })();
 
 // ============================================
-// 2. DATA STREAM
+// 2. DATA STREAM (contextualizado)
 // ============================================
 (function initDataStream() {
   const container = document.getElementById('data-stream');
   if (!container) return;
 
   const streams = [
-    '192.168.1.', '10.0.0.', '172.16.', '0xDEAD', '0xBEEF',
-    'nmap -sV', 'msfconsole', 'sqlmap --dbs', 'nikto -h',
-    'HASH:', 'SHA256:', 'CVE-2024-', 'CVSS:9.8',
-    'root@kali', '/bin/sh', 'chmod 777', 'iptables -L',
-    'SELECT *', 'UNION SELECT', 'DROP TABLE', '-->',
-    'ffuf -w', 'gobuster dir', 'hydra -l', 'john --wordlist',
-    'burpsuite', 'mitmproxy', 'responder', 'impacket',
-    ' bloodhound', 'ldapsearch', 'psexec.py', 'wmiexec.py',
-    'FLAG{', 'CTF{', 'pwned', 'ROOT',
-    '4A:6B:3C:', 'MAC:', 'TTL:64', 'SYN→ACK',
+    // Ferramentas que ele usa
+    'nmap -sV -O', 'metasploit', 'burpsuite', 'sqlmap --dbs',
+    'nikto -h target', 'ffuf -w wordlist', 'gobuster dir',
+    'hydra -l admin', 'john --wordlist', 'hashcat -m',
+    'wireshark', 'tcpdump', 'responder', 'impacket',
+    'bloodhound', 'ldapsearch', 'psexec.py', 'wmiexec.py',
+    'crackmapexec', 'evil-winrm', 'chisel', 'ligolo-ng',
+    // CVEs e segurança
+    'CVE-2024-3094', 'CVE-2024-21762', 'CVE-2023-44487',
+    'CVSS:9.8', 'CVSS:8.5', 'CVSS:7.5',
+    'OWASP Top 10', 'MITRE ATT&CK', 'CWE-79', 'CWE-89',
+    // Red Team
+    'ASSUMED_BREACH', 'C2_BEACON', 'LATERAL_MOVE',
+    'PRIV_ESC', 'EXFIL', 'PERSISTENCE',
+    'msfvenom -p', 'certutil.exe', 'powershell -enc',
+    'rubeus.exe', 'mimikatz', 'sharpkeydump',
+    // Network
+    '192.168.1.', '10.0.0.', '172.16.',
+    'TCP→SYN', 'ACK→RST', 'TTL:64',
+    // Flags
+    'FLAG{', 'CTF{', 'HTB{', 'THM{',
+    // Hex e encoding
+    '0xDEAD', '0xBEEF', '0x41414141',
+    'base64 -d', 'rot13', '\\x90\\x90\\x90',
   ];
 
   function createLine() {
     const el = document.createElement('div');
     el.className = 'stream-line';
     el.style.left = Math.random() * 100 + '%';
-    el.style.animationDuration = (18 + Math.random() * 22) + 's';
-    el.style.animationDelay = Math.random() * 8 + 's';
+    // Velocidades variadas para efeito orgânico
+    const baseSpeed = 15 + Math.random() * 25;
+    el.style.animationDuration = baseSpeed + 's';
+    el.style.animationDelay = Math.random() * 10 + 's';
+    // Opacidade variada
+    el.style.opacity = 0.3 + Math.random() * 0.7;
 
-    // Build random data string
     const parts = [];
-    const count = 3 + Math.floor(Math.random() * 4);
+    const count = 2 + Math.floor(Math.random() * 5);
     for (let i = 0; i < count; i++) {
       parts.push(streams[Math.floor(Math.random() * streams.length)]);
     }
-    el.textContent = parts.join('  ');
+    el.textContent = parts.join('  ·  ');
     container.appendChild(el);
   }
 
-  // Create initial lines
-  for (let i = 0; i < 14; i++) createLine();
+  for (let i = 0; i < 12; i++) createLine();
 
-  // Slowly add more
   setInterval(() => {
-    if (container.children.length < 20) createLine();
-  }, 6000);
+    if (container.children.length < 18) createLine();
+  }, 5000);
 })();
 
 // ============================================
@@ -406,4 +421,29 @@
       card.style.transition = 'transform 0.4s cubic-bezier(.22, 1, .36, 1)';
     });
   });
+})();
+
+// ============================================
+// 10. BACK TO TOP + ANO DINÂMICO
+// ============================================
+(function initFooter() {
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Show/hide based on scroll
+  const colophon = document.querySelector('.colophon');
+  function checkScroll() {
+    const show = window.scrollY > 400;
+    btn.style.opacity = show ? '1' : '0';
+    btn.style.pointerEvents = show ? 'auto' : 'none';
+  }
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
 })();
