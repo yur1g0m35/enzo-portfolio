@@ -266,11 +266,6 @@ export const content = {
         value: "/in/enzo-frederico-lenzi",
         url: "https://www.linkedin.com/in/enzo-frederico-lenzi",
       },
-      {
-        label: "Telefone",
-        value: "(21) 99973-4036",
-        url: "tel:+5521999734036",
-      },
     ],
   },
 

@@ -82,7 +82,6 @@ export function EasterEggs() {
       contact: [
         'Email: enzofred.lenzi@gmail.com',
         'LinkedIn: /in/enzo-frederico-lenzi',
-        'Phone: (21) 99973-4036',
       ],
       status: [
         'System: ONLINE',
