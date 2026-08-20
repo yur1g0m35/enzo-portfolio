@@ -13,74 +13,69 @@ import { Education } from './components/sections/Education';
 import { Contact } from './components/sections/Contact';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollProgress } from './components/ui/ScrollProgress';
+import { EasterEggs } from './components/ui/EasterEggs';
 
 const CyberGrid = lazy(() =>
   import('./components/three/CyberGrid').then((m) => ({ default: m.CyberGrid }))
 );
 
+const techLabels = [
+  { text: 'SECURITY OPERATIONS', style: { top: '12%', left: '5%' } },
+  { text: 'MITRE ATT&CK', style: { top: '28%', right: '8%' } },
+  { text: 'TCP/IP', style: { top: '55%', left: '3%' } },
+  { text: 'CVSS:9.8', style: { top: '72%', right: '6%' } },
+  { text: 'NODE_07', style: { top: '88%', left: '7%' } },
+  { text: '0x4F2A', style: { top: '15%', right: '3%' } },
+  { text: 'PORT 443', style: { top: '42%', left: '2%' } },
+  { text: 'STATUS: ACTIVE', style: { top: '65%', right: '4%' } },
+  { text: 'OWASP', style: { top: '35%', left: '8%' } },
+  { text: '192.168.x.x', style: { top: '80%', right: '9%' } },
+];
+
 export default function App() {
   const [booted, setBooted] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
-  // Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
     });
-
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-
     return () => lenis.destroy();
   }, []);
 
-  // Boot sequence
   useEffect(() => {
-    if (booted) {
-      setTimeout(() => setShowContent(true), 200);
-    }
+    if (booted) setTimeout(() => setShowContent(true), 200);
   }, [booted]);
 
   return (
     <div className="relative min-h-screen">
-      {/* Background layers */}
       <div className="bg-grain" aria-hidden="true" />
       <div className="bg-scanline" aria-hidden="true" />
 
-      {/* Tech labels */}
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-        <span className="tech-label" style={{ top: '12%', left: '5%' }}>SECURITY OPERATIONS</span>
-        <span className="tech-label" style={{ top: '28%', right: '8%' }}>MITRE ATT&CK</span>
-        <span className="tech-label" style={{ top: '55%', left: '3%' }}>TCP/IP</span>
-        <span className="tech-label" style={{ top: '72%', right: '6%' }}>CVSS:9.8</span>
-        <span className="tech-label" style={{ top: '88%', left: '7%' }}>NODE_07</span>
-        <span className="tech-label" style={{ top: '15%', right: '3%' }}>0x4F2A</span>
-        <span className="tech-label" style={{ top: '42%', left: '2%' }}>PORT 443</span>
-        <span className="tech-label" style={{ top: '65%', right: '4%' }}>STATUS: ACTIVE</span>
-        <span className="tech-label" style={{ top: '35%', left: '8%' }}>OWASP</span>
-        <span className="tech-label" style={{ top: '80%', right: '9%' }}>192.168.x.x</span>
+        {techLabels.map((l, i) => (
+          <span key={i} className="tech-label" style={l.style}>{l.text}</span>
+        ))}
       </div>
 
-      {/* WebGL Background */}
       <Suspense fallback={null}>
         <CyberGrid />
       </Suspense>
 
-      {/* Boot Sequence */}
       {!booted && <HeroBoot onComplete={() => setBooted(true)} />}
 
-      {/* Main Content */}
       {showContent && (
         <>
           <CustomCursor />
           <ScrollProgress />
           <Navbar />
-
           <main className="relative z-10">
             <Hero />
             <About />
@@ -91,8 +86,8 @@ export default function App() {
             <Education />
             <Contact />
           </main>
-
           <Footer />
+          <EasterEggs />
         </>
       )}
     </div>
