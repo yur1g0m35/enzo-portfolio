@@ -147,7 +147,7 @@ function ParticleField() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.5 }}
+      style={{ opacity: 0.5, zIndex: 0 }}
     />
   );
 }
@@ -225,8 +225,8 @@ export function Hero() {
 
           <div
             ref={indicatorsRef}
-            className="relative transition-all duration-700"
-            style={{ opacity: nameComplete ? 1 : 0, transform: nameComplete ? 'translateY(0)' : 'translateY(15px)' }}
+            className="relative"
+            style={{ opacity: nameComplete ? 1 : 0, transform: nameComplete ? 'translateY(0)' : 'translateY(15px)', zIndex: 10, transition: 'opacity 0.5s ease, transform 0.5s ease' }}
           >
             <div className="hud-corner top-left" />
             <div className="hud-corner top-right" />
