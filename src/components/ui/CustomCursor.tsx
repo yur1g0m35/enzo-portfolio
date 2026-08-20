@@ -184,21 +184,6 @@ export function CustomCursor() {
       >
         <canvas ref={canvasRef} width={160} height={160} />
       </div>
-
-      {/* Blur overlay on lens area */}
-      {isHoveringText && (
-        <div
-          className="pointer-events-none z-[99997]"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backdropFilter: 'blur(1px)',
-            WebkitBackdropFilter: 'blur(1px)',
-            maskImage: `radial-gradient(circle 80px at ${lensPosRef.current.x}px ${lensPosRef.current.y}px, transparent 0%, black 100%)`,
-            WebkitMaskImage: `radial-gradient(circle 80px at ${lensPosRef.current.x}px ${lensPosRef.current.y}px, transparent 0%, black 100%)`,
-          }}
-        />
-      )}
     </>
   );
 }
