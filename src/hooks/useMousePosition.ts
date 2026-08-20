@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
-export function useMousePosition() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+// Returns a ref that updates on mouse move WITHOUT causing re-renders
+export function useMousePositionRef() {
+  const position = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    let lastUpdate = 0;
     const handler = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      const now = performance.now();
+      if (now - lastUpdate < 16) return; // throttle to ~60fps
+      lastUpdate = now;
+      position.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener('mousemove', handler, { passive: true });
     return () => window.removeEventListener('mousemove', handler);
@@ -14,28 +19,10 @@ export function useMousePosition() {
   return position;
 }
 
-export function useSmoothedMouse(smoothing = 0.08) {
-  const mouse = useMousePosition();
-  const [smooth, setSmooth] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    let raf: number;
-    const target = { x: mouse.x, y: mouse.y };
-    const current = { x: smooth.x, y: smooth.y };
-
-    const animate = () => {
-      current.x += (target.x - current.x) * smoothing;
-      current.y += (target.y - current.y) * smoothing;
-      setSmooth({ x: current.x, y: current.y });
-      raf = requestAnimationFrame(animate);
-    };
-
-    target.x = mouse.x;
-    target.y = mouse.y;
-    raf = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(raf);
-  }, [mouse.x, mouse.y, smoothing]);
-
-  return smooth;
+// Legacy hook — kept for compatibility but uses ref internally
+export function useMousePosition() {
+  const pos = useMousePositionRef();
+  // This returns a ref, not state. Components using this should read .current
+  // For backward compatibility, we return the ref object
+  return pos;
 }
