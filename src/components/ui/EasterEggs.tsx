@@ -123,7 +123,7 @@ export function EasterEggs() {
               className="text-center"
             >
               <div className="font-mono text-4xl md:text-6xl font-bold text-accent tracking-widest mb-4"
-                style={{ textShadow: '0 0 40px rgba(139,0,0,0.5)' }}>
+                style={{ textShadow: '0 0 40px rgba(220,20,60,0.5)' }}>
                 ROOT ACCESS
               </div>
               <div className="font-mono text-sm text-text-muted tracking-widest">
@@ -201,7 +201,7 @@ function ConsoleMessage() {
   useEffect(() => {
     console.log(
       '%c ENZO LENZI %c Security Analyst ',
-      'background: #8B0000; color: white; padding: 4px 8px; font-family: monospace; font-weight: bold;',
+      'background: #DC143C; color: white; padding: 4px 8px; font-family: monospace; font-weight: bold;',
       'background: #1a1a1a; color: #888; padding: 4px 8px; font-family: monospace;'
     );
     console.log('%c Press ">" to open terminal', 'color: #888; font-family: monospace;');

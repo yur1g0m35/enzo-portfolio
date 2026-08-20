@@ -69,17 +69,17 @@ function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={2} color="#8B0000" transparent opacity={0.2} sizeAttenuation />
+        <pointsMaterial size={2} color="#DC143C" transparent opacity={0.2} sizeAttenuation />
       </points>
       <lineSegments>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
         </bufferGeometry>
-        <lineBasicMaterial color="#8B0000" transparent opacity={0.05} />
+        <lineBasicMaterial color="#DC143C" transparent opacity={0.05} />
       </lineSegments>
       <mesh ref={ringRef}>
         <ringGeometry args={[48, 50, 64]} />
-        <meshBasicMaterial color="#8B0000" transparent opacity={0.03} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#DC143C" transparent opacity={0.03} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );

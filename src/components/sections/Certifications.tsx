@@ -64,7 +64,7 @@ export function Certifications() {
                   </span>
                   <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     activatedCert === i
-                      ? 'bg-accent shadow-[0_0_8px_rgba(139,0,0,0.6)]'
+                      ? 'bg-accent shadow-[0_0_8px_rgba(220,20,60,0.6)]'
                       : 'bg-border-strong'
                   }`} />
                 </div>

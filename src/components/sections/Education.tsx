@@ -39,7 +39,7 @@ export function Education() {
             >
               <div className="absolute -left-8 md:-left-12 top-1 w-3 h-3 rounded-full border-2 border-border-medium bg-bg z-10">
                 {entry.status === 'ongoing' && (
-                  <div className="absolute inset-0 rounded-full bg-accent border-2 border-accent shadow-[0_0_0_3px_rgba(139,0,0,0.15)] pulse-glow" />
+                  <div className="absolute inset-0 rounded-full bg-accent border-2 border-accent shadow-[0_0_0_3px_rgba(220,20,60,0.15)] pulse-glow" />
                 )}
               </div>
 

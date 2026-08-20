@@ -18,7 +18,7 @@ function SkillNode({ skill, index, onHover, isHovered, connectedTo }: {
       transition={{ duration: 0.3, delay: index * 0.02 }}
       className={`font-mono text-[0.65rem] px-2.5 py-1.5 border transition-all duration-300 cursor-default inline-block ${
         isHovered
-          ? 'border-accent text-text bg-accent-soft shadow-[0_0_12px_rgba(139,0,0,0.2)]'
+          ? 'border-accent text-text bg-accent-soft shadow-[0_0_12px_rgba(220,20,60,0.2)]'
           : connectedTo
           ? 'border-accent/40 text-text-secondary bg-accent-soft/50'
           : 'border-border text-text-muted bg-bg-surface hover:border-border-medium hover:text-text-secondary'
