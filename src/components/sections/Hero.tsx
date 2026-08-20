@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
-import gsap from 'gsap';
 import { content } from '../../data/content';
 import { GlitchText } from '../motion/GlitchText';
 import { MagneticButton } from '../ui/MagneticButton';
@@ -169,7 +168,6 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const indicatorsRef = useRef<HTMLDivElement>(null);
   const typewriterRef = useRef<HTMLSpanElement>(null);
-  const reduced = useReducedMotion();
 
   // Typewriter
   useEffect(() => {
@@ -197,19 +195,7 @@ export function Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  // Entry animations
-  useEffect(() => {
-    if (reduced || !indicatorsRef.current) return;
-
-    const tl = gsap.timeline({ delay: 1.5 });
-    tl.from(indicatorsRef.current.children, {
-      opacity: 0,
-      y: 15,
-      stagger: 0.04,
-      duration: 0.5,
-      ease: 'power3.out',
-    });
-  }, [reduced, nameComplete]);
+  // No GSAP animation for indicators — they appear via CSS transition when nameComplete is true
 
   const handleNameComplete = useCallback(() => {
     setNameComplete(true);
@@ -278,7 +264,14 @@ export function Hero() {
           </div>
 
           {/* Right — HUD Indicators */}
-          <div ref={indicatorsRef} className="relative">
+          <div
+            ref={indicatorsRef}
+            className="relative transition-all duration-700"
+            style={{
+              opacity: nameComplete ? 1 : 0,
+              transform: nameComplete ? 'translateY(0)' : 'translateY(15px)',
+            }}
+          >
             {/* Corner decorations */}
             <div className="hud-corner top-left" />
             <div className="hud-corner top-right" />
