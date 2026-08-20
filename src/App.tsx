@@ -14,6 +14,7 @@ import { Contact } from './components/sections/Contact';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollProgress } from './components/ui/ScrollProgress';
 import { EasterEggs } from './components/ui/EasterEggs';
+import { initScrollChoreography } from './components/motion/ScrollScene';
 
 const CyberGrid = lazy(() =>
   import('./components/three/CyberGrid').then((m) => ({ default: m.CyberGrid }))
@@ -47,6 +48,7 @@ export default function App() {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+    initScrollChoreography();
     return () => lenis.destroy();
   }, []);
 

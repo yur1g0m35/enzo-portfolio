@@ -84,7 +84,8 @@ function ParticleField() {
     let h = canvas.height = window.innerHeight;
     let raf: number;
 
-    const particles = Array.from({ length: 80 }, () => ({
+    const isMobile = window.innerWidth < 768;
+    const particles = Array.from({ length: isMobile ? 30 : 80 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.3,
@@ -120,25 +121,27 @@ function ParticleField() {
         ctx.fillText(p.char, p.x, p.y);
       });
 
-      // Draw connections near mouse
-      particles.forEach(p => {
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
-          particles.forEach(p2 => {
-            const d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
-            if (d < 100 && d > 0) {
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(220, 20, 60, ${0.03 * (1 - d / 100)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-          });
-        }
-      });
+      // Draw connections near mouse (skip on mobile for performance)
+      if (!isMobile) {
+        particles.forEach(p => {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            particles.forEach(p2 => {
+              const d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
+              if (d < 100 && d > 0) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(220, 20, 60, ${0.03 * (1 - d / 100)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            });
+          }
+        });
+      }
 
       raf = requestAnimationFrame(draw);
     };

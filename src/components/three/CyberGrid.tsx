@@ -1,16 +1,28 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useMousePosition } from '../../hooks/useMousePosition';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
+// Detect low-end device
+function useIsLowEnd() {
+  const [isLowEnd, setIsLowEnd] = useState(false);
+  useEffect(() => {
+    const cores = navigator.hardwareConcurrency || 2;
+    const memory = (navigator as any).deviceMemory || 4;
+    const isMobile = window.innerWidth < 768;
+    setIsLowEnd(isMobile || cores < 4 || memory < 4);
+  }, []);
+  return isLowEnd;
+}
+
+function NetworkNodes({ mouse, isLowEnd }: { mouse: { x: number; y: number }; isLowEnd: boolean }) {
   const groupRef = useRef<THREE.Group>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
   const progressRef = useRef(0);
 
   const { nodes, connections } = useMemo(() => {
-    const count = window.innerWidth < 768 ? 10 : 20;
+    const count = isLowEnd ? 6 : window.innerWidth < 768 ? 12 : 20;
     const nodeArr: THREE.Vector3[] = [];
     const w = window.innerWidth;
     const h = window.innerHeight;
@@ -29,7 +41,7 @@ function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
       }
     }
     return { nodes: nodeArr, connections: conn };
-  }, []);
+  }, [isLowEnd]);
 
   const positions = useMemo(() => {
     const arr = new Float32Array(nodes.length * 3);
@@ -53,7 +65,6 @@ function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
     groupRef.current.rotation.x += (my - groupRef.current.rotation.x) * 0.02;
     groupRef.current.rotation.y += (mx - groupRef.current.rotation.y) * 0.02;
 
-    // Pulse ring
     progressRef.current = (progressRef.current + 0.003) % 1;
     if (ringRef.current) {
       const s = 50 + progressRef.current * 200;
@@ -69,16 +80,18 @@ function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         </bufferGeometry>
-        <pointsMaterial size={2} color="#DC143C" transparent opacity={0.2} sizeAttenuation />
+        <pointsMaterial size={isLowEnd ? 1.5 : 2} color="#DC143C" transparent opacity={0.2} sizeAttenuation />
       </points>
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
-        </bufferGeometry>
-        <lineBasicMaterial color="#DC143C" transparent opacity={0.05} />
-      </lineSegments>
+      {!isLowEnd && (
+        <lineSegments>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
+          </bufferGeometry>
+          <lineBasicMaterial color="#DC143C" transparent opacity={0.05} />
+        </lineSegments>
+      )}
       <mesh ref={ringRef}>
-        <ringGeometry args={[48, 50, 64]} />
+        <ringGeometry args={[48, 50, isLowEnd ? 32 : 64]} />
         <meshBasicMaterial color="#DC143C" transparent opacity={0.03} side={THREE.DoubleSide} />
       </mesh>
     </group>
@@ -88,17 +101,19 @@ function NetworkNodes({ mouse }: { mouse: { x: number; y: number } }) {
 export function CyberGrid() {
   const mouse = useMousePosition();
   const reduced = useReducedMotion();
+  const isLowEnd = useIsLowEnd();
+
   if (reduced) return null;
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none" style={{ opacity: 0.5 }}>
+    <div className="fixed inset-0 z-0 pointer-events-none" style={{ opacity: isLowEnd ? 0.3 : 0.5 }}>
       <Canvas
         camera={{ position: [0, 0, 500], fov: 60 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: false, alpha: true }}
+        dpr={isLowEnd ? 1 : [1, 1.5]}
+        gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
         style={{ background: 'transparent' }}
       >
-        <NetworkNodes mouse={mouse} />
+        <NetworkNodes mouse={mouse} isLowEnd={isLowEnd} />
       </Canvas>
     </div>
   );
