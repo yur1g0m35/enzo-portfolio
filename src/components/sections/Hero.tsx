@@ -108,7 +108,7 @@ function ParticleField() {
         if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
 
         ctx.font = `${p.size}px "JetBrains Mono", monospace`;
-        ctx.fillStyle = `rgba(220, 20, 60, ${p.opacity})`;
+        ctx.fillStyle = `rgba(185, 74, 72, ${p.opacity})`;
         ctx.fillText(p.char, p.x, p.y);
       }
 
@@ -128,7 +128,7 @@ function ParticleField() {
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(220, 20, 60, ${0.025 * (1 - Math.sqrt(d) / 100)})`;
+              ctx.strokeStyle = `rgba(185, 74, 72, ${0.025 * (1 - Math.sqrt(d) / 100)})`;
               ctx.lineWidth = 0.5;
               ctx.stroke();
             }
@@ -184,7 +184,7 @@ export function Hero() {
       <ParticleField />
 
       <div className="absolute inset-0 pointer-events-none z-[1]" style={{
-        backgroundImage: 'linear-gradient(rgba(220,20,60,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(220,20,60,0.015) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(185,74,72,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(185,74,72,0.015) 1px, transparent 1px)',
         backgroundSize: '60px 60px',
       }} />
 

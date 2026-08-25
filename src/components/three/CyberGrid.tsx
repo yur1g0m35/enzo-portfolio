@@ -71,17 +71,17 @@ function NetworkNodes({ isLowEnd }: { isLowEnd: boolean }) {
     <group ref={groupRef}>
       <points>
         <bufferGeometry><bufferAttribute attach="attributes-position" args={[positions, 3]} /></bufferGeometry>
-        <pointsMaterial size={isLowEnd?1.5:2} color="#DC143C" transparent opacity={0.2} sizeAttenuation />
+        <pointsMaterial size={isLowEnd?1.5:2} color="#B94A48" transparent opacity={0.2} sizeAttenuation />
       </points>
       {!isLowEnd && (
         <lineSegments>
           <bufferGeometry><bufferAttribute attach="attributes-position" args={[linePositions, 3]} /></bufferGeometry>
-          <lineBasicMaterial color="#DC143C" transparent opacity={0.05} />
+          <lineBasicMaterial color="#B94A48" transparent opacity={0.05} />
         </lineSegments>
       )}
       <mesh ref={ringRef}>
         <ringGeometry args={[48, 50, isLowEnd?32:64]} />
-        <meshBasicMaterial color="#DC143C" transparent opacity={0.03} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#B94A48" transparent opacity={0.03} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
