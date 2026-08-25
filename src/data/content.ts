@@ -163,6 +163,12 @@ export const content = {
         name: "Certified API Red Team Analyst",
         org: "CyberWarFare Labs",
       },
+      {
+        num: "05",
+        abbr: "eJPT",
+        name: "Junior Penetration Tester",
+        org: "eLearnSecurity",
+      },
     ],
   },
 
