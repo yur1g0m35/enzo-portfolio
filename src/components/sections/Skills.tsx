@@ -13,8 +13,8 @@ function SkillNode({ skill, onHover, isHovered, connectedTo }: {
         isHovered
           ? 'border-accent text-text bg-accent-soft shadow-[0_0_12px_rgba(185,74,72,0.2)]'
           : connectedTo
-          ? 'border-accent/40 text-text-secondary bg-accent-soft/50'
-          : 'border-border text-text-muted bg-bg-surface hover:border-border-medium hover:text-text-secondary'
+          ? 'border-accent/40 text-text-inverse bg-accent-soft/50'
+          : 'border-border text-text-muted-inv bg-bg-surface hover:border-border-medium hover:text-text-inverse'
       }`}
       onMouseEnter={() => onHover(skill)}
       onMouseLeave={() => onHover(null)}

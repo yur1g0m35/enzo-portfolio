@@ -41,21 +41,21 @@ export function Experience() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <span className="font-mono text-[0.65rem] text-text-muted">{entry.date}</span>
+                            <span className="font-mono text-[0.65rem] text-text-muted-inv">{entry.date}</span>
                             {entry.current && (
                               <span className="font-mono text-[0.5rem] tracking-widest uppercase px-2 py-0.5 text-accent border border-accent/30 bg-accent-soft">
                                 ACTIVE
                               </span>
                             )}
                           </div>
-                          <h3 className="font-display text-[1.1rem] font-semibold text-text mb-1">
+                          <h3 className="font-display text-[1.1rem] font-semibold text-text-inverse mb-1">
                             {entry.role}
                           </h3>
                           <p className="font-mono text-[0.7rem] text-accent">{entry.org}</p>
                         </div>
                         <div
                           className={
-                            'w-6 h-6 flex items-center justify-center border border-border text-text-muted ' +
+                            'w-6 h-6 flex items-center justify-center border border-white/10 text-text-muted-inv ' +
                             (isExpanded ? 'rotate-45' : '')
                           }
                         >
@@ -68,14 +68,14 @@ export function Experience() {
 
                 {isExpanded && (
                   <div className="border-x border-b border-border bg-bg-card/50 p-5 md:p-6 pl-6 md:pl-8">
-                    <p className="text-[0.88rem] text-text-secondary mb-4 leading-relaxed">{entry.desc}</p>
+                    <p className="text-[0.88rem] text-text-secondary-inv mb-4 leading-relaxed">{entry.desc}</p>
                     <div className="mb-4">
-                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted block mb-2">
+                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted-inv block mb-2">
                         {'// OBJECTIVES'}
                       </span>
                       <ul className="space-y-1.5">
                         {entry.items.map((item, j) => (
-                          <li key={j} className="flex items-start gap-2 text-[0.82rem] text-text-muted">
+                          <li key={j} className="flex items-start gap-2 text-[0.82rem] text-text-muted-inv">
                             <span className="text-accent mt-0.5 shrink-0">{'\u25B8'}</span>
                             <span>{item}</span>
                           </li>
@@ -83,14 +83,14 @@ export function Experience() {
                       </ul>
                     </div>
                     <div>
-                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted block mb-2">
+                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted-inv block mb-2">
                         {'// TOOLS DEPLOYED'}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {entry.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="font-mono text-[0.58rem] px-2 py-1 bg-bg-surface border border-border text-text-muted"
+                            className="font-mono text-[0.58rem] px-2 py-1 bg-bg-surface border border-white/10 text-text-muted-inv"
                           >
                             {tag}
                           </span>

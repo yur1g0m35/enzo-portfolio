@@ -11,6 +11,9 @@
   --color-text: #17201C;
   --color-text-secondary: #2E4439;
   --color-text-muted: #253830;
+  --color-text-inverse: #F6EED8;
+  --color-text-secondary-inv: #b8c4bc;
+  --color-text-muted-inv: #8a9e92;
   --color-accent: #B94A48;
   --color-accent-hover: #c95a58;
   --color-accent-soft: rgba(185, 74, 72, 0.08);
