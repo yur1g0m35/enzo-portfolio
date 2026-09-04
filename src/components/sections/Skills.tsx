@@ -45,7 +45,7 @@ const connections: Record<string, string[]> = {
 };
 
 export function Skills() {
-  const { ref, inView } = useInView(0.1);
+  const { ref } = useInView(0.1);
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const getConnected = (skill: string) => {
