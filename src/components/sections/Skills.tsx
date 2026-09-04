@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { content } from '../../data/content';
-import { useInView } from '../../hooks/useInView';
 
 function SkillNode({ skill, onHover, isHovered, connectedTo }: {
   skill: string;
@@ -10,7 +9,7 @@ function SkillNode({ skill, onHover, isHovered, connectedTo }: {
 }) {
   return (
     <span
-      className={`font-mono text-[0.65rem] px-2.5 py-1.5 border transition-all duration-300 cursor-default inline-block ${
+      className={`font-mono text-[0.65rem] px-2.5 py-1.5 border cursor-default inline-block ${
         isHovered
           ? 'border-accent text-text bg-accent-soft shadow-[0_0_12px_rgba(185,74,72,0.2)]'
           : connectedTo
@@ -45,7 +44,6 @@ const connections: Record<string, string[]> = {
 };
 
 export function Skills() {
-  const { ref } = useInView(0.1);
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const getConnected = (skill: string) => {
@@ -57,7 +55,7 @@ export function Skills() {
 
   return (
     <section id="competencias" className="relative z-10 px-6 md:px-12 py-24 md:py-32">
-      <div ref={ref} className="max-w-[1080px] mx-auto">
+      <div className="max-w-[1080px] mx-auto">
         <div className="flex items-center gap-4 mb-12 pb-4 border-b border-border">
           <span className="font-display text-sm font-semibold text-accent bg-accent-soft px-2 py-0.5 tracking-wider">
             {content.skills.num}
@@ -85,7 +83,7 @@ export function Skills() {
           {content.skills.categories.map((cat) => (
             <div
               key={cat.name}
-              className="p-5 bg-bg hover:bg-bg-elevated transition-colors"
+              className="p-5 bg-bg hover:bg-bg-elevated"
             >
               <h3 className="font-mono text-[0.6rem] font-medium tracking-[0.12em] uppercase text-accent mb-3 pb-2 border-b border-border">
                 {cat.name}
