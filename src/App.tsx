@@ -59,7 +59,6 @@ export default function App() {
   return (
     <div className="relative min-h-screen">
       <div className="bg-grain" aria-hidden="true" />
-      <div className="bg-scanline" aria-hidden="true" />
 
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
         {techLabels.map((l, i) => (

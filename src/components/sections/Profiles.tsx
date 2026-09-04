@@ -29,8 +29,6 @@ export function Profiles() {
               alt="Avatar 11Lnz"
               className="w-[130px] h-[130px] rounded-full object-cover border-2 border-border-medium grayscale-[40%] hover:grayscale-0 hover:border-accent transition-all duration-500"
             />
-            {/* Scan ring */}
-            <div className="absolute inset-[-4px] rounded-full border border-accent/20 animate-spin" style={{ animationDuration: '8s' }} />
           </motion.div>
 
           {/* Nick with decode */}

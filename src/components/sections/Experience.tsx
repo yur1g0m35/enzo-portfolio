@@ -57,7 +57,7 @@ export function Experience() {
                           <div className="flex items-center gap-3 mb-2">
                             <span className="font-mono text-[0.65rem] text-text-muted">{entry.date}</span>
                             {entry.current && (
-                              <span className="font-mono text-[0.5rem] tracking-widest uppercase px-2 py-0.5 text-accent border border-accent/30 bg-accent-soft pulse-glow">
+                              <span className="font-mono text-[0.5rem] tracking-widest uppercase px-2 py-0.5 text-accent border border-accent/30 bg-accent-soft">
                                 ACTIVE
                               </span>
                             )}

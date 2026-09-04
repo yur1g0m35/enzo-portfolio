@@ -98,7 +98,7 @@ export function Contact() {
             <MagneticButton href={`mailto:${content.contact.email}`} strength={0.2}>
               <span className="font-mono text-[clamp(0.8rem,1.8vw,1rem)] text-accent px-8 py-4 border border-accent/30 bg-accent-soft hover:bg-accent/15 transition-all inline-block relative">
                 {content.contact.email}
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full pulse-glow" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full" />
               </span>
             </MagneticButton>
           </motion.div>

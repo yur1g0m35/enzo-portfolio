@@ -247,7 +247,7 @@ export function Hero() {
               </div>
             </div>
             <div className="mt-3 flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-accent pulse-glow" />
+              <div className="w-1.5 h-1.5 rounded-full bg-accent" />
               <span className="font-mono text-[0.5rem] tracking-widest uppercase text-text-muted">SYSTEM ACTIVE — {new Date().toISOString().split('T')[0]}</span>
             </div>
           </div>
