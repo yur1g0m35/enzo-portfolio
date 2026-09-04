@@ -69,16 +69,6 @@ export function Skills() {
           </span>
         </div>
 
-        {hoveredSkill && (
-          <div className="mb-6 font-mono text-[0.55rem] text-accent tracking-wider">
-            CONNECTED TO: {Object.entries(connections)
-              .filter(([k, v]) => k === hoveredSkill || v.includes(hoveredSkill))
-              .flatMap(([k, v]) => k === hoveredSkill ? v : [k])
-              .filter((v, i, a) => a.indexOf(v) === i)
-              .join(' · ')}
-          </div>
-        )}
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {content.skills.categories.map((cat) => (
             <div
