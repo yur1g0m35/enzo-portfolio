@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { content } from '../../data/content';
 
+const inv = 'var(--color-text-inverse)';
+const invSec = 'var(--color-text-secondary-inv)';
+const invMut = 'var(--color-text-muted-inv)';
+
 export function Experience() {
   const [expandedEntry, setExpandedEntry] = useState<number | null>(null);
 
@@ -41,23 +45,21 @@ export function Experience() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <span className="font-mono text-[0.65rem] text-text-muted-inv">{entry.date}</span>
+                            <span className="font-mono text-[0.65rem]" style={{ color: invMut }}>{entry.date}</span>
                             {entry.current && (
                               <span className="font-mono text-[0.5rem] tracking-widest uppercase px-2 py-0.5 text-accent border border-accent/30 bg-accent-soft">
                                 ACTIVE
                               </span>
                             )}
                           </div>
-                          <h3 className="font-display text-[1.1rem] font-semibold text-text-inverse mb-1">
+                          <h3 className="font-display text-[1.1rem] font-semibold mb-1" style={{ color: inv }}>
                             {entry.role}
                           </h3>
                           <p className="font-mono text-[0.7rem] text-accent">{entry.org}</p>
                         </div>
                         <div
-                          className={
-                            'w-6 h-6 flex items-center justify-center border border-white/10 text-text-muted-inv ' +
-                            (isExpanded ? 'rotate-45' : '')
-                          }
+                          className="w-6 h-6 flex items-center justify-center border border-white/10"
+                          style={{ color: invMut, transform: isExpanded ? 'rotate(45deg)' : 'none' }}
                         >
                           <span className="text-lg leading-none">+</span>
                         </div>
@@ -67,15 +69,15 @@ export function Experience() {
                 </button>
 
                 {isExpanded && (
-                  <div className="border-x border-b border-border bg-bg-card/50 p-5 md:p-6 pl-6 md:pl-8">
-                    <p className="text-[0.88rem] text-text-secondary-inv mb-4 leading-relaxed">{entry.desc}</p>
+                  <div className="border-x border-b border-border p-5 md:p-6 pl-6 md:pl-8" style={{ background: 'rgba(16, 42, 35, 0.5)' }}>
+                    <p className="text-[0.88rem] mb-4 leading-relaxed" style={{ color: invSec }}>{entry.desc}</p>
                     <div className="mb-4">
-                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted-inv block mb-2">
+                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase block mb-2" style={{ color: invMut }}>
                         {'// OBJECTIVES'}
                       </span>
                       <ul className="space-y-1.5">
                         {entry.items.map((item, j) => (
-                          <li key={j} className="flex items-start gap-2 text-[0.82rem] text-text-muted-inv">
+                          <li key={j} className="flex items-start gap-2 text-[0.82rem]" style={{ color: invMut }}>
                             <span className="text-accent mt-0.5 shrink-0">{'\u25B8'}</span>
                             <span>{item}</span>
                           </li>
@@ -83,14 +85,15 @@ export function Experience() {
                       </ul>
                     </div>
                     <div>
-                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-text-muted-inv block mb-2">
+                      <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase block mb-2" style={{ color: invMut }}>
                         {'// TOOLS DEPLOYED'}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {entry.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="font-mono text-[0.58rem] px-2 py-1 bg-bg-surface border border-white/10 text-text-muted-inv"
+                            className="font-mono text-[0.58rem] px-2 py-1 border border-white/10"
+                            style={{ background: 'rgba(22, 61, 50, 0.6)', color: invMut }}
                           >
                             {tag}
                           </span>
